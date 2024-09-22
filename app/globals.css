@@ -89,4 +89,20 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+  h1{
+   @apply text-4xl md:text-6xl xl:text-7xl font-bold;
+  }
+  h2{
+   @apply text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12
+  }
+  h3{
+   @apply text-xl font-bold mb-2 ;
+
+  }
+  a{
+   @apply hover:cursor-pointer;
+  }
+  button{
+   @apply hover:cursor-pointer bg-yellow-500 hover:bg-yellow-600
+  }
 }
