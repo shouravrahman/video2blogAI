@@ -9,9 +9,9 @@ interface TestimonialProps {
 
 const Testimonial: React.FC<TestimonialProps> = ({ quote, author, role }) => (
    <div className="flex flex-col p-6 bg-background rounded-lg shadow-lg">
-      <p className="mb-4 text-zinc-500 dark:text-zinc-400">&ldquo;{quote}&rdquo;</p>
+      <p className="mb-4    text-gray-300">&ldquo;{quote}&rdquo;</p>
       <p className="font-bold">{author}</p>
-      <p className="text-sm text-zinc-500 dark:text-zinc-400">{role}</p>
+      <p className="text-sm    text-gray-300">{role}</p>
    </div>
 );
 
@@ -36,7 +36,7 @@ const Testimonials: React.FC = () => {
 
    return (
       <Section className="bg-background">
-         <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12">What Our Users Say</h2>
+         <h2    >What Our Users Say</h2>
          <div className="grid gap-6 md:grid-cols-3 md:gap-12">
             {testimonials.map((testimonial, index) => (
                <Testimonial key={index} {...testimonial} />

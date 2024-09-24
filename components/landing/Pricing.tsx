@@ -2,17 +2,20 @@
 import { Check } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import Section from './Section';
+import Link from 'next/link';
+import { plans } from '@/lib/constants';
 
 interface PlanProps {
    name: string;
    price: string;
    features: string[];
    buttonText: string;
+   paymentLink: string;
 }
 
-const Plan: React.FC<PlanProps> = ({ name, price, features, buttonText }) => (
-   <div className="flex flex-col p-6 bg-background rounded-lg shadow-lg">
-      <h3 className="text-2xl font-bold mb-4">{name}</h3>
+const Plan: React.FC<PlanProps> = ({ paymentLink, name, price, features, buttonText }) => (
+   <Link href={paymentLink} className="border flex flex-col p-6 bg-background rounded-lg shadow-lg">
+      <h3>{name}</h3>
       <p className="text-4xl font-bold mb-4">{price}<span className="text-base font-normal">/month</span></p>
       <ul className="mb-6 space-y-2 flex-grow">
          {features.map((feature, index) => (
@@ -23,37 +26,18 @@ const Plan: React.FC<PlanProps> = ({ name, price, features, buttonText }) => (
          ))}
       </ul>
       <Button className="mt-auto">{buttonText}</Button>
-   </div>
+   </Link>
 );
 
 const Pricing: React.FC = () => {
-   const plans = [
-      {
-         name: 'Free',
-         price: '$0',
-         features: ['3 video conversions/month', 'Basic blog formatting'],
-         buttonText: 'Get Started'
-      },
-      {
-         name: 'Pro',
-         price: '$29',
-         features: ['Unlimited conversions', 'Advanced SEO optimization', 'Priority support'],
-         buttonText: 'Subscribe'
-      },
-      {
-         name: 'Enterprise',
-         price: 'Custom',
-         features: ['Custom integrations', 'Dedicated account manager', '24/7 premium support'],
-         buttonText: 'Contact Sales'
-      }
-   ];
+
 
    return (
-      <Section id="pricing" className="border-t border-zinc-200 dark:border-zinc-800">
-         <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12">Pricing Plans</h2>
-         <div className="grid gap-6 md:grid-cols-3 md:gap-12">
-            {plans.map((plan, index) => (
-               <Plan key={index} {...plan} />
+      <Section id="pricing">
+         <h2>Pricing Plans</h2>
+         <div className="grid gap-6 md:grid-cols-2 md:gap-12">
+            {plans.map((plan) => (
+               <Plan key={plan.id} {...plan} />
             ))}
          </div>
       </Section>

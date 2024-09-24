@@ -7,8 +7,8 @@ import Section from './Section';
 
 const ContactSupport: React.FC = () => {
    return (
-      <Section className="border-t border-zinc-200 dark:border-zinc-800">
-         <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12">Contact Support</h2>
+      <Section className="  dark:border-zinc-800">
+         <h2    >Contact Support</h2>
          <div className="max-w-md mx-auto space-y-4">
             <div className="flex items-center space-x-2">
                <Mail className="h-5 w-5 text-zinc-500" />

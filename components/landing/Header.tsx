@@ -1,10 +1,16 @@
 
 import Link from 'next/link';
 import { MountainIcon } from 'lucide-react';
+import {
 
+   SignInButton,
+   SignedIn,
+   SignedOut,
+   UserButton
+} from '@clerk/nextjs'
 const Header: React.FC = () => {
    return (
-      <header className="px-4 lg:px-6 h-14 flex items-center border-b border-zinc-200 dark:border-zinc-800">
+      <header className="container mx-auto backdrop-blur-sm mt-4 rounded-3xl px-4 lg:px-6 h-14 flex items-center border border-zinc-100/30 dark:border-zinc-800">
          <Link href="#" className="flex items-center">
             <MountainIcon className="h-6 w-6" />
             <span className="ml-2 text-lg font-bold">Video2Blog AI</span>
@@ -19,6 +25,14 @@ const Header: React.FC = () => {
                   {item}
                </Link>
             ))}
+
+            <SignedIn>
+               <UserButton />
+            </SignedIn>
+            <SignedOut>
+               <Link href="/sign-in">Sign In</Link>
+            </SignedOut>
+
          </nav>
       </header>
    );

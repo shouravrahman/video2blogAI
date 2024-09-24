@@ -9,7 +9,7 @@ interface FAQItemProps {
 const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => (
    <details className="p-6 bg-background rounded-lg shadow-lg">
       <summary className="text-lg font-semibold cursor-pointer">{question}</summary>
-      <p className="mt-2 text-zinc-500 dark:text-zinc-400">{answer}</p>
+      <p className="mt-2 text-gray-300">{answer}</p>
    </details>
 );
 
@@ -34,9 +34,9 @@ const FAQ: React.FC = () => {
    ];
 
    return (
-      <Section id="faq" className="border-t border-zinc-200 dark:border-zinc-800">
-         <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12">Frequently Asked Questions</h2>
-         <div className="space-y-4">
+      <Section id="faq" >
+         <h2>Frequently Asked Questions</h2>
+         <div className="space-y-4 flex flex-col items-start">
             {faqs.map((faq, index) => (
                <FAQItem key={index} {...faq} />
             ))}
